@@ -38,42 +38,6 @@ class Chestpress(Exercise):
                 landmark_drawing_spec=pose_landmark_drawing_spec,
                 connection_drawing_spec=pose_connection_drawing_spec)
             idx_to_coordinates = get_idx_to_coordinates(image, results)
-            # try:
-            #     # shoulder - ankle - wrist
-            #     if 12 in idx_to_coordinates and 28 in idx_to_coordinates and 16 in idx_to_coordinates:  # left side of body
-            #         cv2.line(image, (idx_to_coordinates[12]), (idx_to_coordinates[28]), thickness=4,
-            #                  color=(255, 0, 255))
-            #         cv2.line(image, (idx_to_coordinates[28]), (idx_to_coordinates[16]), thickness=4,
-            #                  color=(255, 0, 255))
-            #         l1 = np.linspace(idx_to_coordinates[12], idx_to_coordinates[28], 100)
-            #         l2 = np.linspace(idx_to_coordinates[28], idx_to_coordinates[16], 100)
-            #         eang1 = ang((idx_to_coordinates[12], idx_to_coordinates[28]),
-            #                     (idx_to_coordinates[28], idx_to_coordinates[16]))
-            #         cv2.putText(image, str(round(eang1, 2)), (idx_to_coordinates[28]),
-            #                     fontFace=cv2.FONT_HERSHEY_SIMPLEX,
-            #                     fontScale=0.6, color=(0, 255, 0), thickness=2)
-            #         center, radius, start_angle, end_angle = convert_arc(l1[80], l2[20], sagitta=15)
-            #         axes = (radius, radius)
-            #         draw_ellipse(image, center, axes, -1, start_angle, end_angle, 255)
-            #
-            #     else:  # right side of body
-            #         cv2.line(image, (idx_to_coordinates[11]), (idx_to_coordinates[27]), thickness=4,
-            #                  color=(255, 0, 255))
-            #         cv2.line(image, (idx_to_coordinates[27]), (idx_to_coordinates[15]), thickness=4,
-            #                  color=(255, 0, 255))
-            #         l1 = np.linspace(idx_to_coordinates[11], idx_to_coordinates[27], 100)
-            #         l2 = np.linspace(idx_to_coordinates[27], idx_to_coordinates[16], 100)
-            #         eang1 = ang((idx_to_coordinates[11], idx_to_coordinates[27]),
-            #                     (idx_to_coordinates[27], idx_to_coordinates[15]))
-            #         cv2.putText(image, str(round(eang1, 2)), (idx_to_coordinates[27]),
-            #                     fontFace=cv2.FONT_HERSHEY_SIMPLEX,
-            #                     fontScale=0.6, color=(0, 255, 0), thickness=2)
-            #         center, radius, start_angle, end_angle = convert_arc(l1[80], l2[20], sagitta=15)
-            #         axes = (radius, radius)
-            #         draw_ellipse(image, center, axes, -1, start_angle, end_angle, 255)
-            # except:
-            #     pass
-
             try:
                 # shoulder - Elbow - wrist
                 if 12 in idx_to_coordinates and 14 in idx_to_coordinates and 16 in idx_to_coordinates:  # right side of body
@@ -118,47 +82,67 @@ class Chestpress(Exercise):
             except:
                 pass
 
-            # try:
-            #     # elbow - wrist - horizontal ground
-            #     if 14 in idx_to_coordinates and 16 in idx_to_coordinates:  # left side of body
-            #         cv2.line(image, (idx_to_coordinates[14]), (idx_to_coordinates[16]), thickness=4,
-            #                  color=(255, 0, 255))
-            #         cv2.line(image, (idx_to_coordinates[16]),
-            #                  (idx_to_coordinates[16][0] + 80, idx_to_coordinates[16][1]),
-            #                  thickness=4, color=(255, 0, 255))
-            #         l1 = np.linspace(idx_to_coordinates[14], idx_to_coordinates[16], 100)
-            #         temp = (idx_to_coordinates[16][0] + 80, idx_to_coordinates[16][1])
-            #         l2 = np.linspace(idx_to_coordinates[16], temp, 100)
-            #         ang1 = ang((idx_to_coordinates[14], idx_to_coordinates[16]),
-            #                    (idx_to_coordinates[16], temp))
-            #         cv2.putText(image, "   " + str(round(ang1, 2)), (idx_to_coordinates[16]),
-            #                     fontFace=cv2.FONT_HERSHEY_SIMPLEX,
-            #                     fontScale=0.6, color=(0, 255, 0), thickness=2)
-            #         center, radius, start_angle, end_angle = convert_arc(l1[80], l2[20], sagitta=15)
-            #         axes = (radius, radius)
-            #         draw_ellipse(image, center, axes, -1, start_angle, end_angle, 255)
-            #     else:  # right side of body
-            #         cv2.line(image, (idx_to_coordinates[13]), (idx_to_coordinates[15]), thickness=4,
-            #                  color=(255, 0, 255))
-            #         cv2.line(image, (idx_to_coordinates[15]),
-            #                  (idx_to_coordinates[15][0] + 80, idx_to_coordinates[15][1]),
-            #                  thickness=4, color=(255, 0, 255))
-            #         l1 = np.linspace(idx_to_coordinates[14], idx_to_coordinates[15], 100)
-            #         temp = (idx_to_coordinates[15][0] + 80, idx_to_coordinates[15][1])
-            #         l2 = np.linspace(idx_to_coordinates[15], temp, 100)
-            #         ang1 = ang((idx_to_coordinates[14], idx_to_coordinates[15]),
-            #                    (idx_to_coordinates[15], temp))
-            #         cv2.putText(image, "   " + str(round(ang1, 2)), (idx_to_coordinates[15]),
-            #                     fontFace=cv2.FONT_HERSHEY_SIMPLEX,
-            #                     fontScale=0.6, color=(0, 255, 0), thickness=2)
-            #         center, radius, start_angle, end_angle = convert_arc(l1[80], l2[20], sagitta=15)
-            #         axes = (radius, radius)
-            #         draw_ellipse(image, center, axes, -1, start_angle, end_angle, 255)
-            #
-            # except:
-            #     pass
+            try:
+                # rhip - rknee - rheel
+                if 26 in idx_to_coordinates and 30 in idx_to_coordinates and 24 in idx_to_coordinates:  # right side of body
+
+                    # Line rhip - rknie
+                    cv2.line(image, (idx_to_coordinates[24]), (idx_to_coordinates[26]), thickness=4,
+                             color=(255, 0, 255))
+                    l1 = np.linspace(idx_to_coordinates[24], idx_to_coordinates[26], 100)
+
+                    # Line rheel - rfood.index
+                    cv2.line(image, (idx_to_coordinates[26]), (idx_to_coordinates[30]), thickness=4,
+                             color=(255, 0, 255))
+                    l2 = np.linspace(idx_to_coordinates[26], idx_to_coordinates[30], 100)
+
+                    # Angel rfemur - rfoot
+                    angel_rfemur_rfoot = round(ang((idx_to_coordinates[24], idx_to_coordinates[26]),
+                               (idx_to_coordinates[26], idx_to_coordinates[30])))
+                    # Text Angel rfemur - rfoot
+                    cv2.putText(image, "   " + str(round(angel_rfemur_rfoot, 2)), (idx_to_coordinates[26]),
+                                fontFace=cv2.FONT_HERSHEY_SIMPLEX,
+                                fontScale=0.6, color=(0, 255, 0), thickness=2)
+
+                    if angel_rfemur_rfoot < 70 or angel_rfemur_rfoot > 120:
+                        print("Falsch R")
+
+                    center, radius, start_angle, end_angle = convert_arc(l1[80], l2[20], sagitta=15)
+                    axes = (radius, radius)
+                    draw_ellipse(image, center, axes, -1, start_angle, end_angle, 255)
+
+                # lhip - lknee - lheel
+                if 23 in idx_to_coordinates and 25 in idx_to_coordinates and 29 in idx_to_coordinates:  # right side of body
+
+                    # Line rhip - rknie
+                    cv2.line(image, (idx_to_coordinates[23]), (idx_to_coordinates[25]), thickness=4,
+                             color=(255, 0, 255))
+                    l1 = np.linspace(idx_to_coordinates[23], idx_to_coordinates[25], 100)
+
+                    # Line rheel - rfood.index
+                    cv2.line(image, (idx_to_coordinates[25]), (idx_to_coordinates[29]), thickness=4,
+                             color=(255, 0, 255))
+                    l2 = np.linspace(idx_to_coordinates[25], idx_to_coordinates[29], 100)
+
+                    # Angel rfemur - rfoot
+                    angel_lfemur_lfoot = round(ang((idx_to_coordinates[23], idx_to_coordinates[25]),
+                               (idx_to_coordinates[25], idx_to_coordinates[29])))
+                    # Text Angel rfemur - rfoot
+                    cv2.putText(image, "   " + str(round(angel_rfemur_rfoot, 2)), (idx_to_coordinates[25]),
+                                fontFace=cv2.FONT_HERSHEY_SIMPLEX,
+                                fontScale=0.6, color=(0, 255, 0), thickness=2)
+
+                    if angel_lfemur_lfoot < 70 or angel_rfemur_rfoot > 120:
+                        print("Falsch L")
+
+                    center, radius, start_angle, end_angle = convert_arc(l1[80], l2[20], sagitta=15)
+                    axes = (radius, radius)
+                    draw_ellipse(image, center, axes, -1, start_angle, end_angle, 255)
+            except:
+                pass
 
             cv2.imshow('Image', rescale_frame(image, percent=100))
             if cv2.waitKey(5) & 0xFF == 27:
                 break
+
         pose.close()

@@ -4,7 +4,6 @@ from src.exercies.Exercise import Exercise
 import time
 from src.utils import *
 
-import logging
 
 mp_drawing = mp.solutions.drawing_utils
 mp_holistic = mp.solutions.holistic

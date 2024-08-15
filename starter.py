@@ -18,14 +18,6 @@ class Starter:
     def rep(self, type, source):
         if type.lower() == str("pushup"):
             self.pushup.exercise(source)
-        elif type.lower() == str("squat"):
-            self.squat.exercise(source)
-        elif type.lower() == str("plank"):
-            self.plank.exercise(source)
-        elif type.lower() == str("shouldertap"):
-            self.shoulderTap.exercise(source)
-        elif type.lower() == str("lunges"):
-            self.lunges.exercise(source)
         elif type.lower() == str("chestpress"):
             self.chestpress.exercise(source)
         else:
@@ -34,4 +26,4 @@ class Starter:
 
 if __name__ == '__main__':
     gym = Starter()
-    gym.rep("chestpress", 0)
+    gym.rep("chestpress", "resources/chestpress.mp4")
