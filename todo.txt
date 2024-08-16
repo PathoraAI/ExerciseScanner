@@ -1,3 +1,2 @@
-- linie hohlkreuz
-- linie kopf-rücken
+<- linie kopf-rücken
 - andere winkel

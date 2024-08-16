@@ -82,6 +82,7 @@ class Chestpress(Exercise):
             except:
                 pass
 
+
             try:
                 # rhip - rknee - rheel
                 if 26 in idx_to_coordinates and 30 in idx_to_coordinates and 24 in idx_to_coordinates:  # right side of body
@@ -97,14 +98,14 @@ class Chestpress(Exercise):
                     l2 = np.linspace(idx_to_coordinates[26], idx_to_coordinates[30], 100)
 
                     # Angel rfemur - rfoot
-                    angel_rfemur_rfoot = round(ang((idx_to_coordinates[24], idx_to_coordinates[26]),
+                    angel = round(ang((idx_to_coordinates[24], idx_to_coordinates[26]),
                                (idx_to_coordinates[26], idx_to_coordinates[30])))
                     # Text Angel rfemur - rfoot
-                    cv2.putText(image, "   " + str(round(angel_rfemur_rfoot, 2)), (idx_to_coordinates[26]),
+                    cv2.putText(image, "   " + str(round(angel, 2)), (idx_to_coordinates[26]),
                                 fontFace=cv2.FONT_HERSHEY_SIMPLEX,
                                 fontScale=0.6, color=(0, 255, 0), thickness=2)
 
-                    if angel_rfemur_rfoot < 70 or angel_rfemur_rfoot > 120:
+                    if angel < 70 or angel > 120:
                         print("Falsch R")
 
                     center, radius, start_angle, end_angle = convert_arc(l1[80], l2[20], sagitta=15)
@@ -112,7 +113,7 @@ class Chestpress(Exercise):
                     draw_ellipse(image, center, axes, -1, start_angle, end_angle, 255)
 
                 # lhip - lknee - lheel
-                if 23 in idx_to_coordinates and 25 in idx_to_coordinates and 29 in idx_to_coordinates:  # right side of body
+                if 23 in idx_to_coordinates and 25 in idx_to_coordinates and 29 in idx_to_coordinates:
 
                     # Line rhip - rknie
                     cv2.line(image, (idx_to_coordinates[23]), (idx_to_coordinates[25]), thickness=4,
@@ -128,11 +129,11 @@ class Chestpress(Exercise):
                     angel_lfemur_lfoot = round(ang((idx_to_coordinates[23], idx_to_coordinates[25]),
                                (idx_to_coordinates[25], idx_to_coordinates[29])))
                     # Text Angel rfemur - rfoot
-                    cv2.putText(image, "   " + str(round(angel_rfemur_rfoot, 2)), (idx_to_coordinates[25]),
+                    cv2.putText(image, "   " + str(round(angel, 2)), (idx_to_coordinates[25]),
                                 fontFace=cv2.FONT_HERSHEY_SIMPLEX,
                                 fontScale=0.6, color=(0, 255, 0), thickness=2)
 
-                    if angel_lfemur_lfoot < 70 or angel_rfemur_rfoot > 120:
+                    if angel_lfemur_lfoot < 70 or angel > 120:
                         print("Falsch L")
 
                     center, radius, start_angle, end_angle = convert_arc(l1[80], l2[20], sagitta=15)
@@ -140,6 +141,89 @@ class Chestpress(Exercise):
                     draw_ellipse(image, center, axes, -1, start_angle, end_angle, 255)
             except:
                 pass
+
+            # try:
+            #     # rshoulder - rhip
+            #     if 12 in idx_to_coordinates and 24 in idx_to_coordinates:  # right side of body
+            #
+            #         # Line rshoulder - rhip
+            #         cv2.line(image, (idx_to_coordinates[12]), (idx_to_coordinates[24]), thickness=4,
+            #                  color=(255, 0, 255))
+            #         l1 = np.linspace(idx_to_coordinates[12], idx_to_coordinates[24], 100)
+            #
+            #         # Angel rshoulder - rhip
+            #         angel = round(ang((idx_to_coordinates[12], idx_to_coordinates[24])))
+            #
+            #         # Text Angel rshoulder - rhip
+            #         cv2.putText(image, "   " + str(round(angel, 2)), (idx_to_coordinates[26]),
+            #                     fontFace=cv2.FONT_HERSHEY_SIMPLEX,
+            #                     fontScale=0.6, color=(0, 255, 0), thickness=2)
+            #
+            #         if angel < 70 or angel > 120:
+            #             print("Falsch R")
+            #
+            #         center, radius, start_angle, end_angle = convert_arc(l1[80], l2[20], sagitta=15)
+            #         axes = (radius, radius)
+            #         draw_ellipse(image, center, axes, -1, start_angle, end_angle, 255)
+            #
+            #
+            #     # rshoulder - rhip
+            #     if 11 in idx_to_coordinates and 23 in idx_to_coordinates:  # right side of body
+            #
+            #         # Line rshoulder - rhip
+            #         cv2.line(image, (idx_to_coordinates[11]), (idx_to_coordinates[23]), thickness=4,
+            #                  color=(255, 0, 255))
+            #         l1 = np.linspace(idx_to_coordinates[11], idx_to_coordinates[23], 100)
+            #
+            #         # Angel rshoulder - rhip
+            #         angel = round(ang((idx_to_coordinates[11], idx_to_coordinates[23])))
+            #
+            #         # Text Angel rshoulder - rhip
+            #         cv2.putText(image, "   " + str(round(angel, 2)), (idx_to_coordinates[11]),
+            #                     fontFace=cv2.FONT_HERSHEY_SIMPLEX,
+            #                     fontScale=0.6, color=(0, 255, 0), thickness=2)
+            #
+            #         center, radius, start_angle, end_angle = convert_arc(l1[80], l2[20], sagitta=15)
+            #         axes = (radius, radius)
+            #         draw_ellipse(image, center, axes, -1, start_angle, end_angle, 255)
+            #
+            # except:
+            #     pass
+
+
+            try:
+                # rEar - rShoulder
+                if 8 in idx_to_coordinates and 12 in idx_to_coordinates:  # right side of body
+
+                    cv2.line(image, (idx_to_coordinates[8]), (idx_to_coordinates[12]), thickness=4,
+                             color=(255, 0, 255))
+                    l1 = np.linspace(idx_to_coordinates[8], idx_to_coordinates[12], 100)
+
+                    # Angel
+                    angel = round(ang((idx_to_coordinates[8], idx_to_coordinates[12]),
+                               (idx_to_coordinates[8], idx_to_coordinates[12])))
+
+                    # Text Angel
+                    cv2.putText(image, "   " + str(round(angel, 2)), (idx_to_coordinates[26]),
+                                fontFace=cv2.FONT_HERSHEY_SIMPLEX,
+                                fontScale=0.6, color=(0, 255, 0), thickness=2)
+
+                    if angel < 70 or angel > 120:
+                        print("Falsch R")
+
+                    center, radius, start_angle, end_angle = convert_arc(l1[80], l2[20], sagitta=15)
+                    axes = (radius, radius)
+                    draw_ellipse(image, center, axes, -1, start_angle, end_angle, 255)
+
+
+
+                    center, radius, start_angle, end_angle = convert_arc(l1[80], l2[20], sagitta=15)
+                    axes = (radius, radius)
+                    draw_ellipse(image, center, axes, -1, start_angle, end_angle, 255)
+            except:
+                pass
+
+
 
             cv2.imshow('Image', rescale_frame(image, percent=100))
             if cv2.waitKey(5) & 0xFF == 27:
