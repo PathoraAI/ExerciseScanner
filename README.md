@@ -1,7 +1,4 @@
 # GymLytics 🏋️ 
-[![](https://img.shields.io/github/license/sourcerer-io/hall-of-fame.svg?colorB=ff0000)](https://github.com/akshaybahadur21/Autopilot/blob/master/LICENSE.txt)  [![](https://img.shields.io/badge/Akshay-Bahadur-brightgreen.svg?colorB=ff0000)](https://akshaybahadur.com)
-
-Visual Analytics of different exercises for humans 
 
 ## Code Requirements 🦄
 You can install Conda for python which resolves all the dependencies for machine learning.
@@ -40,21 +37,6 @@ If you face any problem, kindly raise an issue
 ```
 python3 GymLytics.py --type pushup --source resources/push_aks.mov
 ```
-
-## Results 📊
-
-### Push ups
-<div align="center">
-<img src="https://github.com/akshaybahadur21/BLOB/blob/master/push.gif" width=800>
-</div>
-
-### Squats
-<div align="center">
-<img src="https://github.com/akshaybahadur21/BLOB/blob/master/gym_squats.gif" width=400>
-</div>
-
-
-
 
 ## References 🔱
  
